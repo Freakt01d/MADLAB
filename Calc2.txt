@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ xmlns:app="http://schemas.android.com/apk/res-auto"
+ xmlns:tools="http://schemas.android.com/tools"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent"
+ android:orientation="vertical"
+ tools:context=".MainActivity">
+ <EditText
+ android:id="@+id/num1"
+ android:layout_width="match_parent"
+ android:layout_height="64dp"
+ android:hint="Enter First Number"
+ android:textAlignment="center"
+ android:textSize="20sp" />
+ <EditText
+ android:id="@+id/num2"
+ android:layout_width="match_parent"
+ android:layout_height="64dp"
+ android:hint="Enter Second Number"
+ android:textAlignment="center"
+ android:textSize="20sp" />
+ <TextView
+ android:layout_width="match_parent"
+ android:layout_height="wrap_content"
+ android:hint="Result"
+ android:id="@+id/result"
+ android:textAlignment="center"
+ android:textSize="20sp"
+ />
+ <LinearLayout
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:layout_gravity="center"
+ android:orientation="horizontal">
+ <Button
+ android:id="@+id/seven"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="7"
+ android:textSize="20sp"
+ android:onClick="seven"
+ android:textAlignment="center" />
+ <Button
+ android:id="@+id/eight"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="8"
+ android:onClick="eight"
+ android:textSize="20sp"
+ android:textAlignment="center" />
+ <Button
+ android:id="@+id/nine"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="9"
+ android:onClick="nine"
+ android:textAlignment="center"
+ android:textSize="20sp" />
+ <Button
+ android:id="@+id/divide"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="/"
+ android:onClick="division"
+ android:textAlignment="center"
+ android:textSize="20sp" />
+ </LinearLayout>
+ <LinearLayout
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:orientation="horizontal"
+ android:layout_gravity="center">
+ <Button
+ android:id="@+id/four"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="4"
+ android:onClick="four"
+ android:textAlignment="center"
+ android:textSize="20sp" />
+ <Button
+android:id="@+id/five"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="5"
+ android:onClick="five"
+ android:textAlignment="center"
+ android:textSize="20sp" />
+ 
+<Button
+ android:id="@+id/six"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="6"
+ android:onClick="six"
+ android:textAlignment="center"
+ android:textSize="20sp" />
+ 
+<Button
+ android:id="@+id/multiply"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="*"
+ android:onClick="multiply"
+ android:textAlignment="center"
+ android:textSize="20sp" />
+ </LinearLayout
+>
+ 
+<LinearLayout
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:layout_gravity="center"
+ android:orientation="horizontal"
+>
+ 
+<Button
+ android:id="@+id/one"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="1"
+ android:onClick="one"
+ android:textAlignment="center"
+ android:textSize="20sp" />
+ 
+<Button
+ android:id="@+id/two"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="2"
+ android:onClick="two"
+ android:textAlignment="center"
+ android:textSize="20sp" />
+<Button
+ android:id="@+id/three"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="3"
+ android:onClick="three"
+ android:textAlignment="center"
+ android:textSize="20sp" />
+ 
+<Button
+ android:id="@+id/minus"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="
+-
+"
+ android:onClick="sub"
+ android:textAlignment="center"
+ android:textSize="20sp" />
+ </LinearLayout
+>
+ 
+<LinearLayout
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:layout_gravity="center"
+ android:orientation="horizontal"
+>
+ 
+<Button
+ android:id="@+id/dot"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="."
+ 
+android:onClick="dot"
+ android:textAlignment="center"
+ android:textSize="20sp" />
+ 
+<Button
+ android:id="@+id/zero"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="0"
+ android:onClick="zero"
+ android:textAlignment="center"
+ android:textSize="20sp" />
+ 
+<Button
+ android:id="@+id/equals"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="="
+ android:onClick="compute"
+ android:textAlignment="center"
+ android:textSize="20sp" />
+<Button
+ android:id="@+id/add"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="+"
+ android:onClick="add"
+ android:textAlignment="center"
+ android:textSize="20sp" />
+ </LinearLayout>
+ <LinearLayout
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:orientation="horizontal"
+ android:layout_gravity="center">
+ <Button
+ android:id="@+id/All_Clear"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="C"
+ android:onClick="All_Clear"
+ android:textAlignment="center"
+ android:textSize="20sp" />
+ </LinearLayout>
+</LinearLayout>
+MainActivity.java
+package com.example.calculator;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+public class MainActivity extends AppCompatActivity {
+EditText number1, number2;
+TextView res;
+char op;
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+number1=findViewById(R.id.num1);
+ number2=findViewById(R.id.num2);
+ res=findViewById(R.id.result);
+ }
+ public void one(View v)
+ {
+ if(number1.hasFocus())
+ {
+ number1.append("1");
+ }
+ else if(number2.hasFocus())
+ {
+ number2.append("1");
+ }
+ else
+ {
+ Toast.makeText(this, "Please focus on the first/second field", Toast.LENGTH_LONG).show();
+ }
+ }
+ public void two(View v)
+ {
+ if(number1.hasFocus())
+ {
+ number1.append("2");
+ }
+ else if(number2.hasFocus())
+ {
+ number2.append("2");
+ }
+ else
+ {
+ Toast.makeText(this, "Please focus on the first/second field", Toast.LENGTH_LONG).show();
+ }
+ }
+ public void three(View v)
+ {
+ if(number1.hasFocus())
+ {
+ number1.append("3");
+ }
+ else if(number2.hasFocus())
+ {
+ number2.append("3");
+ }
+else
+ {
+ Toast.makeText(this, "Please focus on the first/second field", Toast.LENGTH_LONG).show();
+ }
+ }
+ public void four(View v)
+ {
+ if(number1.hasFocus())
+ {
+ number1.append("4");
+ }
+ else if(number2.hasFocus())
+ {
+ number2.append("4");
+ }
+ else
+ {
+ Toast.makeText(this, "Please focus on the first/second field", Toast.LENGTH_LONG).show();
+ }
+ }
+ public void five(View v)
+ {
+ if(number1.hasFocus())
+ {
+ number1.append("5");
+ }
+ else if(number2.hasFocus())
+ {
+ number2.append("5");
+ }
+ else
+ {
+ Toast.makeText(this, "Please focus on the first/second field", Toast.LENGTH_LONG).show();
+ }
+ }
+ public void six(View v)
+ {
+ if(number1.hasFocus())
+ {
+ number1.append("6");
+ }
+ else if(number2.hasFocus())
+ {
+ number2.append("6");
+ }
+else
+ {
+ Toast.makeText(this, "Please focus on the first/second field", Toast.LENGTH_LONG).show();
+ }
+ }
+ public void seven( View v)
+ {
+ if(number1.hasFocus())
+ {
+ number1.append("7");
+ }
+ else if(number2.hasFocus())
+ {
+ number2.append("7");
+ }
+ else
+ {
+ Toast.makeText(this, "Please focus on the first/second field", Toast.LENGTH_LONG).show();
+ }
+ }
+ public void eight(View v)
+ {
+ if(number1.hasFocus())
+ {
+ number1.append("8");
+ }
+ else if(number2.hasFocus())
+ {
+ number2.append("8");
+ }
+ else
+ {
+ Toast.makeText(this, "Please focus on the first/second field", Toast.LENGTH_LONG).show();
+ }
+ }
+ public void nine(View v)
+ {
+ if(number1.hasFocus())
+ {
+ number1.append("9");
+ }
+ else if(number2.hasFocus())
+ {
+ number2.append("9");
+ }
+ else
+{
+ Toast.makeText(this, "Please focus on the first/second field", Toast.LENGTH_LONG).show();
+ }
+ }
+ public void zero(View v)
+ {
+ if(number1.hasFocus())
+ {
+ number1.append("0");
+ }
+ else if(number2.hasFocus())
+ {
+ number2.append("0");
+ }
+ else
+ {
+ Toast.makeText(this, "Please focus on the first/second field", Toast.LENGTH_LONG).show();
+ }
+ }
+ public void dot(View v)
+ {
+ if(number1.hasFocus())
+ {
+ number1.append(".");
+ }
+ else if(number2.hasFocus())
+ {
+ number2.append(".");
+ }
+ else
+ {
+ Toast.makeText(this, "Please focus on the first/second field", Toast.LENGTH_LONG).show();
+ }
+ }
+ public void add(View v)
+ {
+ op='+';
+ }
+ public void sub(View v)
+ {
+ op='-';
+ }
+ public void multiply(View v)
+ {
+ op='*';
+ }
+public void division(View v)
+ {
+ op='/';
+ }
+ public void compute(View v)
+ {
+ float n1,n2,r;
+ switch (op)
+ {
+ case '+': n1=Float.parseFloat(number1.getText().toString());
+ n2=Float.parseFloat(number2.getText().toString());
+ r=n1+n2;
+ res.setText(""+n1+"+"+n2+"="+r);
+ break;
+ case '-' : n1=Float.parseFloat(number1.getText().toString());
+ n2=Float.parseFloat(number2.getText().toString());
+ r=n1-n2;
+ res.setText(""+n1+"-"+n2+"="+r);
+ break;
+ case '*' : n1=Float.parseFloat(number1.getText().toString());
+ n2=Float.parseFloat(number2.getText().toString());
+ r=n1*n2;
+ res.setText(""+n1+"*"+n2+"="+r);
+ break;
+ case '/' : n1=Float.parseFloat(number1.getText().toString());
+ n2=Float.parseFloat(number2.getText().toString());
+ r=n1/n2;
+ res.setText(""+n1+"/"+n2+"="+r);
+ break;
+ }
+ }
+ public void All_Clear(View v)
+ {
+ number1.setText("");
+ number2.setText("");
+ res.setText("");
+ }
+}
+

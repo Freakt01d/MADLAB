@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ xmlns:app="http://schemas.android.com/apk/res-auto"
+ xmlns:tools="http://schemas.android.com/tools"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent"
+ android:orientation="vertical"
+ tools:context=".MainActivity">
+ <TextView
+ android:layout_width="match_parent"
+ android:layout_height="wrap_content"
+ android:text="Counter Application"
+ android:textAlignment="center"
+ android:textColor="@color/purple_200"
+ android:textSize="30sp" />
+ <TextView
+ android:id="@+id/counter"
+ android:layout_width="match_parent"
+ android:layout_height="86dp"
+ android:textAlignment="center"
+ android:textColor="@color/purple_500"
+ android:textSize="30sp" />
+ <Button
+ android:id="@+id/startcounter"
+android:layout_width="match_parent"
+ android:layout_height="wrap_content"
+ android:onClick="startcounter"
+ android:text="Start"
+ android:textAlignment="center"
+ android:textColor="@color/teal_200"
+ android:textSize="25sp" />
+ <Button
+ android:id="@+id/stopcounter"
+ android:layout_width="match_parent"
+ android:layout_height="wrap_content"
+ android:text="Stop"
+ android:textAlignment="center"
+ android:textColor="@color/teal_200"
+ android:onClick="stopcounter"
+ android:textSize="25sp" />
+</LinearLayout>
+Mainactivity.java
+package com.example.counter;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
+import android.widget.TextView;
+public class MainActivity extends AppCompatActivity {
+TextView tv;
+Handler myhandler=new Handler();
+int i=0;
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ tv=findViewById(R.id.counter);
+ }
+ public void startcounter(View v)
+ {
+ int i=0;
+myhandler.postDelayed(Threadcount, 1000);
+ 
+ }
+ public void stopcounter(View v)
+ {
+ myhandler.removeCallbacks(Threadcount);
+ }
+ public Runnable Threadcount=new Runnable() {
+ @Override
+ public void run() {
+ tv.setText(""+i);
+ i++;
+ myhandler.postDelayed(Threadcount, 1000);
+ }
+ };
+}
